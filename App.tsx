@@ -7,62 +7,21 @@
  *
  * @format
  */
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+import { useColorScheme } from 'react-native';
+import 'react-native-gesture-handler';
+import Navigator from './views/Navigator';
+import { SafeAreaView } from 'react-native-safe-area-context';
+const App = () => {
+  const isDarkMode = useColorScheme() === 'dark';
 
- import React from 'react';
- import {
-   SafeAreaView,
-   ScrollView,
-   StatusBar,
-   StyleSheet,
-   Text,
-   useColorScheme,
-   View,
- } from 'react-native';
+  return (
+    <>
+      <SafeAreaView style={{flex: 0, backgroundColor: '#F8FBFC'}} />
+      <Navigator />
+    </>
+  );
+};
 
- import {
-   Colors,
-   DebugInstructions,
-   Header,
-   LearnMoreLinks,
-   ReloadInstructions,
- } from 'react-native/Libraries/NewAppScreen';
-
- const App = () => {
-   const isDarkMode = useColorScheme() === 'dark';
-
-   const backgroundStyle = {
-     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-   };
-
-   return (
-     <SafeAreaView style={backgroundStyle}>
-       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-       <ScrollView>
-         <View>
-           <Text>Hello</Text>
-         </View>
-       </ScrollView>
-     </SafeAreaView>
-   );
- };
-
- const styles = StyleSheet.create({
-   sectionContainer: {
-     marginTop: 32,
-     paddingHorizontal: 24,
-   },
-   sectionTitle: {
-     fontSize: 24,
-     fontWeight: '600',
-   },
-   sectionDescription: {
-     marginTop: 8,
-     fontSize: 18,
-     fontWeight: '400',
-   },
-   highlight: {
-     fontWeight: '700',
-   },
- });
-
- export default App;
+export default App;
